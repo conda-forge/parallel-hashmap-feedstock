@@ -1,5 +1,5 @@
 {% set name = "parallel-hashmap" %}
-{% set version = "1.33" %}
+{% set version = "1.37" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/greg7mdp/parallel-hashmap/archive/{{ version }}.tar.gz
-  sha256: f6e4d0508c4d935fa25dcbaec63fbe0d7503435797e275ec109e8a3f1462a4cd
+  sha256: 2ac652be0552fcb53a1163c08c1f28f29f0756594fcc587eebb4d8b363153709
 
 build:
   number: 0
