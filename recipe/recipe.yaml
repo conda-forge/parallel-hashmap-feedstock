@@ -7,35 +7,20 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://github.com/greg7mdp/parallel-hashmap/archive/${{ version }}.tar.gz
+  url: https://github.com/greg7mdp/parallel-hashmap/archive/v${{ version }}.tar.gz
   sha256: 4f462f51a3468166ea4cf87c80e001dc1999093264cf55cbda3492ca39a7730b
 
 build:
   number: 0
   noarch: generic
-  script:
-    - if: unix
-      then: |
-        cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
-              -DCMAKE_PREFIX_PATH=$PREFIX \
-              -DPHMAP_BUILD_TESTS=OFF \
-              -DPHMAP_BUILD_EXAMPLES=OFF \
-              -B build
-        cmake --build build --config Release
-        cmake --install build
-    - if: win
-      then: |
-        cmake -LAH -G"NMake Makefiles" ^
-            -DCMAKE_PREFIX_PATH="%PREFIX%" ^
-            -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
-            -DPHMAP_BUILD_TESTS=OFF ^
-            -DPHMAP_BUILD_EXAMPLES=OFF ^
-            -B build
-        if errorlevel 1 exit 1
-        cmake --build build --config "Release"
-        if errorlevel 1 exit 1
-        cmake --install build
-        if errorlevel 1 exit 1
+  script: |
+    cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
+          -DCMAKE_PREFIX_PATH=$PREFIX \
+          -DPHMAP_BUILD_TESTS=OFF \
+          -DPHMAP_BUILD_EXAMPLES=OFF \
+          -B build
+    cmake --build build --config Release
+    cmake --install build
 
 requirements:
   build:
