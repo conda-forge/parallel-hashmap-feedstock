@@ -18,6 +18,7 @@ build:
           -DCMAKE_PREFIX_PATH=$PREFIX \
           -DPHMAP_BUILD_TESTS=OFF \
           -DPHMAP_BUILD_EXAMPLES=OFF \
+          -GNinja \
           -B build
     cmake --build build --config Release
     cmake --install build
@@ -28,6 +29,7 @@ requirements:
     - ${{ compiler('cxx') }}
     - ${{ stdlib("c") }}
     - cmake >=3.15
+    - ninja
 
 tests:
   - package_contents:
