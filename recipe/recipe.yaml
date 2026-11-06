@@ -1,6 +1,6 @@
 context:
   name: parallel-hashmap
-  version: 2.0.0
+  version: "2.1.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/greg7mdp/parallel-hashmap/archive/v${{ version }}.tar.gz
-  sha256: 4f462f51a3468166ea4cf87c80e001dc1999093264cf55cbda3492ca39a7730b
+  sha256: d2c94659a5301c94cd5bbd6cf4b01c1dd635bba15c76cc188cdd82b928136838
 
 build:
   number: 0
